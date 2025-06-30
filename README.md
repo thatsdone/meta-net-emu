@@ -44,7 +44,32 @@ Ensure that you have the following line in your local.conf.
 ```
 IMAGE_INSTALL:append = " ueransim"
 ```
+
+## AGL Integration
+
+AGL is a Yocto Linux based highly customized distribution.
+Assuming your AGL_TOP directory is /opt/agl, create the following .inc file
+
+/opt/agl/meta-agl-devel/templates/feature/agl-cellular/50_bblayers.conf.inc
+
+with the following content.
     
+```
+BBLAYERS =+ " \
+        ${METADIR}/meta-agl-devel/meta-cellular \
+        "
+```
+
+Then, setup your build environment specifying 'agl-cellular' to aglsetup.sh
+script.
+
+```
+source meta-agl/scripts/aglsetup.sh \
+    -m YOUR_TARGET_ARCHITECTURE(e.g., qemuarm64) \
+    -b YOUR_BUILD_DIRECTORY \
+    agl-devel agl-demo agl-cellular
+```
+
 ## Contributing
 
 Please file an issue and send a PR.

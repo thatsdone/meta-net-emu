@@ -60,6 +60,8 @@ BBLAYERS =+ " \
         "
 ```
 
+You can use `agl/50_bblayers.conf.inc`.
+
 Then, setup your build environment specifying 'agl-cellular' to aglsetup.sh
 script.
 

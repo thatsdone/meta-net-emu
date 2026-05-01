@@ -1,17 +1,14 @@
-# meta-cellular
+# meta-net-emu
 
-Yocto layer for cellular network tools.
+Yocto layer for network emulators.
 
 ## Description
 
-This layer supports installation of UERANSIM,
-an open source emulator for 3GPP 5G UE and RAN(gNodeB)
-maintained at:
-
-https://github.com/aligungr/UERANSIM
-
-Currently, the recipe is intended for only client (UE) side, thus
-it installs only nr-ue and nr-cli.
+This layer supports installation of the following tools:
+* UERANSIM
+    * An open source emulator for 3GPP 5G UE and RAN(gNodeB) maintained at:
+      https://github.com/aligungr/UERANSIM
+    * Currently, the recipe is intended for only client (UE) side, thus it installs only nr-ue and nr-cli.
 
 ## Yocto Project Compatible Layer
 
@@ -35,7 +32,7 @@ This recipe has dependency on the following openembedded layers.
 
 ## Quick Start
 
-Run 'bitbake-layers add-layer PATH_TO/meta-cellular'
+Run 'bitbake-layers add-layer PATH_TO/meta-net-emu'
 
 Also ensure that your environment has dependencies in your bblayers.conf
 
@@ -50,26 +47,26 @@ IMAGE_INSTALL:append = " ueransim"
 AGL is a Yocto Linux based highly customized distribution.
 Assuming your AGL_TOP directory is /opt/agl, create the following .inc file
 
-/opt/agl/meta-agl-devel/templates/feature/agl-cellular/50_bblayers.conf.inc
+/opt/agl/meta-agl-devel/templates/feature/agl-net-emu/50_bblayers.conf.inc
 
 with the following content.
     
 ```
 BBLAYERS =+ " \
-        ${METADIR}/meta-agl-devel/meta-cellular \
+        ${METADIR}/meta-agl-devel/meta-net-emu \
         "
 ```
 
 You can use `agl/50_bblayers.conf.inc`.
 
-Then, setup your build environment specifying 'agl-cellular' to aglsetup.sh
+Then, setup your build environment specifying 'agl-net-emu' to aglsetup.sh
 script.
 
 ```
 source meta-agl/scripts/aglsetup.sh \
     -m YOUR_TARGET_ARCHITECTURE(e.g., qemuarm64) \
     -b YOUR_BUILD_DIRECTORY \
-    agl-devel agl-demo agl-cellular
+    agl-devel agl-demo agl-net-emu
 ```
 
 ## Contributing

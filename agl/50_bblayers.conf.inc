@@ -1,4 +1,4 @@
 
 BBLAYERS =+ " \
-	${METADIR}/meta-agl-devel/meta-cellular \
+	${METADIR}/meta-agl-devel/meta-net-emu \
 	"

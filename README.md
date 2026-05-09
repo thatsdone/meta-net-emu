@@ -4,27 +4,38 @@ Yocto layer for network emulators.
 
 ## Description
 
-This layer supports installation of the following tools:
+This layer supports installation of the following emulation tools:
 * UERANSIM
     * An open source emulator for 3GPP 5G UE and RAN(gNodeB) maintained at:
       https://github.com/aligungr/UERANSIM
     * Currently, the recipe is intended for only client (UE) side, thus it installs only nr-ue and nr-cli.
+* viwifi
+    * An open source emulator for WiFi commication
+    * This recipe installs all the vwifi binaries both server and client side.
 
 ## Yocto Project Compatible Layer
 
 Tested under Yocto scarthgap and compatible distributions like
-AGL (19.0.x, Super Salmon).
+AGL (21.0.x, Ultimate Unagi).
 
 ## Dependencies
 
-This recipe fetches the following UERANSIM source repository.
+This recipe fetches the following repositories.
 
-* URI: https://github.com/aligungr/UERANSIM
-* branch: master
-* tag: v3.2.7
+* UERANSIM
+    * URI: https://github.com/aligungr/UERANSIM
+    * branch: master
+    * tag: v3.2.7
 
-This recipe has dependency on the following openembedded layers.
+* vwifi
+    * URI: https://github.com/Raizo62/vwifi
+    * branch: master
+    * tag: v4.6
 
+These recipes have dependency on the following openembedded layers.
+
+* openembedded-core
+    * vwifi requires 'libnl'
 * meta-openembedded/meta-oe
 * meta-openembedded/meta-python
 * meta-openembedded/meta-networking
@@ -32,14 +43,15 @@ This recipe has dependency on the following openembedded layers.
 
 ## Quick Start
 
-Run 'bitbake-layers add-layer PATH_TO/meta-net-emu'
+In case of plain Yocto, run 'bitbake-layers add-layer PATH_TO/meta-net-emu'
 
-Also ensure that your environment has dependencies in your bblayers.conf
-
-Ensure that you have the following line in your local.conf.
+Ensure that your environment has dependencies in your bblayers.conf.
+Also, ensure that you have the following lines in your local.conf
+depending on your choice.
 
 ```
 IMAGE_INSTALL:append = " ueransim"
+IMAGE_INSTALL:append = " vwifi"
 ```
 
 ## AGL Integration
@@ -73,10 +85,14 @@ source meta-agl/scripts/aglsetup.sh \
 
 Please file an issue and send a PR.
 
+## TODO
+* UERANSIM: Make it configurable to install nr-gnb (gNodeB)
+* vwifi: Improve debug symbol strip handling
+
 ## License
 
-Note that UERANSIM is distributed under GPL-3.0, but this recipe is
-Apache-2.0.
+Note that UERANSIM is distributed under GPL-3.0 and vwifi is LGPL 3.0,
+but this recipe is Apache-2.0.
     
 ## Maintainers
 

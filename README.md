@@ -15,8 +15,9 @@ This layer supports installation of the following emulation tools:
 
 ## Yocto Project Compatible Layer
 
-Tested under Yocto scarthgap and compatible distributions like
-AGL (21.0.x, Ultimate Unagi).
+Tested under the following patterns:
+* Yocto scarthgap and compatible distributions like AGL (21.0.x, Ultimate Unagi).
+* Yocto wrynose and compatible distributions like AGL (22.0.x, Vibrant Vimba).
 
 ## Dependencies
 

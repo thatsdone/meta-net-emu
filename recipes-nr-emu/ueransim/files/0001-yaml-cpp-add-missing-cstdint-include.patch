@@ -1,7 +1,7 @@
 Upstream-Status: Pending
 
 diff --git a/src/ext/yaml-cpp/emitterutils.cpp b/src/ext/yaml-cpp/emitterutils.cpp
-index 0113c454c..bccb2a211 100644
+index 589d34062..94f05ce14 100644
 --- a/src/ext/yaml-cpp/emitterutils.cpp
 +++ b/src/ext/yaml-cpp/emitterutils.cpp
 @@ -1,4 +1,5 @@
@@ -9,29 +9,15 @@ index 0113c454c..bccb2a211 100644
 +#include <cstdint>
  #include <iomanip>
  #include <sstream>
- 
+ #include <cstdint>
 diff --git a/src/lib/rlc/utils.hpp b/src/lib/rlc/utils.hpp
-index 0f7befc18..606aa07d1 100644
+index 818fc55ed..6f36f2588 100644
 --- a/src/lib/rlc/utils.hpp
 +++ b/src/lib/rlc/utils.hpp
-@@ -9,6 +9,7 @@
- #pragma once
- 
+@@ -10,6 +10,7 @@
+
+ #include <cstdint>
  #include <cstring>
 +#include <cstdint>
  #include <memory>
  #include <vector>
- 
-diff --git a/src/utils/json.hpp b/src/utils/json.hpp
-index 603311cba..2f805d0a7 100644
---- a/src/utils/json.hpp
-+++ b/src/utils/json.hpp
-@@ -7,7 +7,7 @@
- //
- 
- #pragma once
--
-+#include <cstdint>
- #include <initializer_list>
- #include <map>
- #include <memory>
